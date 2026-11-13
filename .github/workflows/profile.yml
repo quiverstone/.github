@@ -44,6 +44,7 @@ jobs:
         run: python scripts/generate_stats.py "$ORG"
 
       - name: Latest blog posts
+        continue-on-error: true # keep refreshed stat cards if the blog step fails
         run: python scripts/update_blog.py "$BLOG_URL" --count 5
 
       - name: Commit changes

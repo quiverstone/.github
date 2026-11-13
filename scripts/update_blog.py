@@ -96,10 +96,18 @@ def main() -> None:
     def md(title: str) -> str:
         return title.replace("[", r"\[").replace("]", r"\]")
 
+    def safe_url(link: str) -> str:
+        # Keep the Markdown link intact: encode characters that would end it early.
+        return link.replace(" ", "%20").replace("(", "%28").replace(")", "%29")
+
     lines = [
-        f"- [{md(title)}]({link})" + (f" <sub>{date}</sub>" if date else "")
+        f"- [{md(title)}]({safe_url(link)})" + (f" <sub>{date}</sub>" if date else "")
         for title, link, date in posts
+        if link.startswith(("https://", "http://"))
     ]
+    if not lines:
+        print("warn: feed had no http(s) links; README left unchanged")
+        return
     text = README.read_text()
     if START not in text or END not in text:
         sys.exit("profile/README.md is missing the BLOG-POST-LIST markers")

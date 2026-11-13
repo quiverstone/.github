@@ -140,7 +140,10 @@ def graphql(query: str, variables: dict, token: str) -> dict:
         sys.exit(f"Failed to fetch GitHub data: {exc}")
     if payload.get("errors"):
         sys.exit(f"GraphQL error: {payload['errors']}")
-    return payload["data"]
+    data = payload.get("data")
+    if data is None:
+        sys.exit(f"GraphQL response missing 'data': {payload}")
+    return data
 
 
 def fetch(login: str, token: str) -> dict:
