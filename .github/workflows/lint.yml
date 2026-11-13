@@ -19,10 +19,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Scripts compile and render offline
-        run: |
-          python -m py_compile scripts/*.py
-          python scripts/generate_stats.py quiverstone --mock --out "$RUNNER_TEMP/preview"
+      - name: Scripts compile
+        run: python -m py_compile scripts/*.py
 
       - name: Blog markers present
         run: |
@@ -32,5 +30,5 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --max-retries 2 --accept 200,206,403,429 --exclude 'readme-typing-svg' --exclude 'raw.githubusercontent.com/quiverstone/.github' './**/*.md'
+          args: --no-progress --max-retries 2 --accept 200,206,403,429 --exclude 'readme-typing-svg' './**/*.md'
           fail: false

@@ -81,15 +81,6 @@ GovCloud and FedRAMP environments, and commercial teams in healthcare, logistics
 | Security reports | [Security policy](https://github.com/quiverstone/.github/blob/main/SECURITY.md) |
 | Talk to us | [Contact](https://www.quiverstone.io/contact/) · [Book 20 min](https://meet.quiverstone.io/demo) |
 
-### 📊 On GitHub
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/quiverstone/.github/main/profile/assets/stats.svg" alt="Quiverstone GitHub stats" height="180" />
-  <img src="https://raw.githubusercontent.com/quiverstone/.github/main/profile/assets/languages.svg" alt="Top languages across Quiverstone repositories" height="180" />
-</p>
-
 <div align="center">
-<sub>Stats and blog posts refresh daily via <a href="https://github.com/quiverstone/.github/blob/main/.github/workflows/profile.yml">GitHub Actions</a> — no third-party stat servers.</sub>
-<br/><br/>
 <sub><i>Governance shouldn't be a barrier to innovation — it should be the foundation that enables it.</i></sub>
 </div>
