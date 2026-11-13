@@ -49,15 +49,25 @@ Past work includes U.S. Navy, Air Force, and Space Force contract support, DOI/U
 GovCloud and FedRAMP environments, and commercial teams in healthcare, logistics, and local government.
 **[Explore services →](https://www.quiverstone.io/professional-services/)**
 
+### 📦 Open source
+
+Free, public building blocks — the same templates we use with customers and in our blog posts.
+
+| Repository | What it is |
+| --- | --- |
+| [**armory**](https://github.com/quiverstone/armory) | Ready-to-use CloudFormation templates, SCPs/RCPs, and scripts for AWS foundations — IAM, Organizations, Config, Control Tower, VPC, billing, and more. |
+| [**assets**](https://github.com/quiverstone/assets) | The Quiverstone **role catalog**: Inventory and Access roles for Browser Session, Direct, and Chained access, for single accounts or org-wide via StackSets. |
+| [**docs**](https://github.com/quiverstone/docs) | Source for [docs.quiverstone.io](https://docs.quiverstone.io). Spot a gap? PRs welcome. |
+
 ### 🧰 Built with
 
 <p>
   <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=FF9900" alt="AWS" />
   <img src="https://img.shields.io/badge/Organizations_%26_STS-232F3E?style=flat-square&logo=amazoniam&logoColor=FF9900" alt="AWS Organizations & STS" />
   <img src="https://img.shields.io/badge/CloudFormation-FF4F8B?style=flat-square&logo=amazonwebservices&logoColor=white" alt="CloudFormation" />
-  <img src="https://img.shields.io/badge/Terraform-844FBA?style=flat-square&logo=terraform&logoColor=white" alt="Terraform" />
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white" alt="Bash" />
   <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white" alt="GitHub Actions" />
 </p>
 
