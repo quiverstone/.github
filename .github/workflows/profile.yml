@@ -1,0 +1,51 @@
+name: Refresh blog posts
+
+# Refreshes the "From the blog" list on the organization profile
+# (profile/README.md) from the Quiverstone blog feed via scripts/update_blog.py.
+
+on:
+  schedule:
+    - cron: "23 6 * * *" # daily
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "profile/README.md"
+      - "scripts/**"
+      - ".github/workflows/profile.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile
+  cancel-in-progress: true
+
+env:
+  BLOG_URL: https://www.quiverstone.io/blog/
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Latest blog posts
+        run: python scripts/update_blog.py "$BLOG_URL" --count 5
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/README.md
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: refresh blog posts"
+            git push
+          fi

@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Quiverstone docs
+    url: https://docs.quiverstone.io/
+    about: How-tos and reference for the Quiverstone platform.
+  - name: 🛟 Product support
+    url: https://support.quiverstone.io/
+    about: Help with your Quiverstone account, access, or billing.
+  - name: 💡 Feature requests & changelog
+    url: https://quiverstone.canny.io/changelog
+    about: Vote on and suggest features for the Quiverstone platform.
+  - name: 🔐 Report a security vulnerability
+    url: https://github.com/quiverstone/.github/blob/main/SECURITY.md
+    about: Please do not open public issues for security problems.
