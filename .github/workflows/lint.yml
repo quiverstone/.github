@@ -1,0 +1,36 @@
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scripts compile and render offline
+        run: |
+          python -m py_compile scripts/*.py
+          python scripts/generate_stats.py quiverstone --mock --out "$RUNNER_TEMP/preview"
+
+      - name: Blog markers present
+        run: |
+          grep -q '<!-- BLOG-POST-LIST:START -->' profile/README.md
+          grep -q '<!-- BLOG-POST-LIST:END -->' profile/README.md
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-retries 2 --accept 200,206,403,429 --exclude 'readme-typing-svg' --exclude 'raw.githubusercontent.com/quiverstone/.github' './**/*.md'
+          fail: false

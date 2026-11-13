@@ -1,0 +1,59 @@
+name: Refresh profile
+
+# Regenerates everything dynamic on the organization profile (profile/README.md):
+#   - profile/assets/stats.svg, languages.svg  (scripts/generate_stats.py)
+#   - "From the blog" list                     (scripts/update_blog.py)
+
+on:
+  schedule:
+    - cron: "23 6 * * *" # daily
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "profile/README.md"
+      - "scripts/**"
+      - ".github/workflows/profile.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile
+  cancel-in-progress: true
+
+env:
+  ORG: quiverstone
+  BLOG_URL: https://www.quiverstone.io/blog/
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Stat cards
+        continue-on-error: true # keep blog updates if the GitHub API hiccups
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_stats.py "$ORG"
+
+      - name: Latest blog posts
+        run: python scripts/update_blog.py "$BLOG_URL" --count 5
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: refresh profile assets"
+            git push
+          fi

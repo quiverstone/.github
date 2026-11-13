@@ -1,0 +1,26 @@
+name: ✨ Feature request
+description: Suggest an improvement to this repository.
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas for the Quiverstone platform are best shared on [our roadmap board](https://quiverstone.canny.io/changelog)
+        so others can vote on them.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the situation, not just the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
