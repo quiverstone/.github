@@ -5,6 +5,10 @@ Thanks for helping out! These guidelines apply to every public repository in the
 
 ## Before you start
 
+- **Check the repository's own guide first.** [armory](https://github.com/quiverstone/armory) has its own
+  `CONTRIBUTING.md` and a CloudFormation standard enforced in CI, and [docs](https://github.com/quiverstone/docs)
+  publishes `main` automatically, so every change there needs a pull request.
+
 - **Bugs and small fixes** — open a pull request directly, or an issue first if you'd like a second opinion.
 - **New features or bigger changes** — open an issue to discuss the approach before you write a lot of code.
 - **Platform ideas** — share them on [our roadmap board](https://quiverstone.canny.io/changelog).
