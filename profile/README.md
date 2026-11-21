@@ -74,6 +74,7 @@ Free, public building blocks — the same templates we use with customers and in
 ### 📝 From the blog
 
 <!-- BLOG-POST-LIST:START -->
+- [Just-in-time AWS access for AI agents: deploying TEAM on IAM Identity Center, scoping it, proving it, and tearing it down](https://www.quiverstone.io/blog/just-in-time-aws-access-for-ai-agents-deploying-team-on-iam-identity-center-scoping-it-proving-it-and-tearing-it-down/) <sub>Nov 2026</sub>
 - [Automating Contact Updates Across Accounts In Your Organization](https://www.quiverstone.io/blog/automating-contact-updates-across-accounts-in-your-organization/) <sub>Jan 2026</sub>
 - [Scaling Performance Testing: Leveraging the AWS Distributed Load Testing Solution](https://www.quiverstone.io/blog/scaling-performance-testing-leveraging-the-aws-distributed-load-testing-solution/) <sub>Jan 2026</sub>
 - [Quiverstone: The Single Pane of Glass for AWS Multi-Account Chaos](https://www.quiverstone.io/blog/quiverstone-the-single-pane-of-glass-for-aws-multi-account-chaos/) <sub>Jan 2026</sub>
